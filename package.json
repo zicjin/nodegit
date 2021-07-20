@@ -1,7 +1,7 @@
 {
   "name": "nodegit-zic",
   "description": "Node.js libgit2 asynchronous native bindings",
-  "version": "0.28.0-alpha.9.2",
+  "version": "0.28.0-alpha.9.3",
   "homepage": "http://nodegit.org",
   "keywords": [
     "libgit2",
@@ -38,13 +38,13 @@
     "node": ">= 12.19.0 < 13 || >= 14.10.0"
   },
   "dependencies": {
+    "@mapbox/node-pre-gyp": "^1.0.5",
     "fs-extra": "^7.0.0",
     "got": "^10.7.0",
     "json5": "^2.1.0",
     "lodash": "^4.17.14",
     "nan": "^2.14.1",
     "node-gyp": "^7.1.2",
-    "node-pre-gyp": "^0.13.0",
     "ramda": "^0.25.0",
     "tar-fs": "^1.16.3"
   },
@@ -92,6 +92,6 @@
     "recompileDebug": "node-gyp configure --debug build",
     "test": "npm run lint && node --expose-gc test",
     "xcodeDebug": "node-gyp configure -- -f xcode",
-    "publish-qiniu": "node lifecycleScripts/clean && node-pre-gyp package && node lifecycleScripts/publish-qiniu"
+    "publish-qiniu": "node lifecycleScripts/clean && node-pre-gyp package --runtime=electron --target=12.0.15 && node lifecycleScripts/publish-qiniu"
   }
 }
