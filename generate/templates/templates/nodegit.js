@@ -11,7 +11,7 @@ var rawApi;
 // Attempt to load the production release first, if it fails fall back to the
 // debug release.
 try {
-  rawApi = require("../build/Release/nodegit.node");
+  rawApi = require("../build/Release/nodegit-zic.node");
 }
 catch (ex) {
   /* istanbul ignore next */
@@ -19,7 +19,7 @@ catch (ex) {
     throw ex;
   }
 
-  rawApi = require("../build/Debug/nodegit.node");
+  rawApi = require("../build/Debug/nodegit-zic.node");
 }
 
 var promisify = fn => fn && util.promisify(fn); // jshint ignore:line

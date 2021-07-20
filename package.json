@@ -1,7 +1,7 @@
 {
   "name": "nodegit-zic",
   "description": "Node.js libgit2 asynchronous native bindings",
-  "version": "0.28.0-alpha.9",
+  "version": "0.28.0-alpha.9.1",
   "homepage": "http://nodegit.org",
   "keywords": [
     "libgit2",
@@ -28,7 +28,7 @@
   "main": "dist/nodegit.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/nodegit/nodegit.git"
+    "url": "git://github.com/zicjin/nodegit.git"
   },
   "directories": {
     "build": "./build",
@@ -61,12 +61,13 @@
     "jshint": "^2.9.6",
     "lcov-result-merger": "^3.1.0",
     "mocha": "^5.2.0",
+    "qiniu": "^7.4.0",
     "walk": "^2.3.9"
   },
   "binary": {
-    "module_name": "nodegit",
+    "module_name": "nodegit-zic",
     "module_path": "./build/Release/",
-    "host": "https://axonodegit.s3.amazonaws.com/nodegit/nodegit/"
+    "host": "https://cdn.socode.pro/"
   },
   "scripts": {
     "babel": "babel --presets es2015 -d ./dist ./lib",
@@ -77,7 +78,7 @@
     "generateJson": "node generate/scripts/generateJson",
     "generateMissingTests": "node generate/scripts/generateMissingTests",
     "generateNativeCode": "node generate/scripts/generateNativeCode",
-    "install": "node lifecycleScripts/preinstall && node lifecycleScripts/install",
+    "install": "chcp 65001 && node lifecycleScripts/preinstall && node lifecycleScripts/install",
     "installDebug": "BUILD_DEBUG=true npm install",
     "lint": "jshint lib test/tests test/utils lifecycleScripts",
     "mergecov": "lcov-result-merger 'test/**/*.info' 'test/coverage/merged.lcov' && ./lcov-1.10/bin/genhtml test/coverage/merged.lcov --output-directory test/coverage/report",
@@ -90,6 +91,7 @@
     "recompile": "node-gyp configure build",
     "recompileDebug": "node-gyp configure --debug build",
     "test": "npm run lint && node --expose-gc test",
-    "xcodeDebug": "node-gyp configure -- -f xcode"
+    "xcodeDebug": "node-gyp configure -- -f xcode",
+    "publish-qiniu": "node lifecycleScripts/clean && node-pre-gyp package && node lifecycleScripts/publish-qiniu"
   }
 }
