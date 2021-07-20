@@ -12,7 +12,7 @@ config.zone = qiniu.zone.Zone_z0;
 // const bucketManager = new qiniu.rs.BucketManager(mac, config)
 
 const formUploader = new qiniu.form_up.FormUploader(config);
-const fileName = `nodegit-zic-v${process.env.npm_package_version}-electron-v12.0-win32-x64.tar.gz`;
+const fileName = `nodegit-v${process.env.npm_package_version}-electron-v12.0-win32-x64.tar.gz`;
 const optionsStatic = { scope: `derealize:${fileName}` };
 const putPolicy = new qiniu.rs.PutPolicy(optionsStatic);
 

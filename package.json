@@ -1,7 +1,7 @@
 {
-  "name": "nodegit-zic",
+  "name": "@derealize/nodegit",
   "description": "Node.js libgit2 asynchronous native bindings",
-  "version": "0.28.0-alpha.9.3",
+  "version": "0.28.0-alpha.9.4",
   "homepage": "http://nodegit.org",
   "keywords": [
     "libgit2",
@@ -65,7 +65,7 @@
     "walk": "^2.3.9"
   },
   "binary": {
-    "module_name": "nodegit-zic",
+    "module_name": "nodegit",
     "module_path": "./build/Release/",
     "host": "https://cdn.socode.pro/"
   },

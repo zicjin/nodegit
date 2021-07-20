@@ -32,7 +32,7 @@
       ]
     },
     {
-      "target_name": "nodegit-zic",
+      "target_name": "nodegit",
 
       "hard_dependencies": [
         "configureLibssh2"
